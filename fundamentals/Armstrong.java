@@ -1,56 +1,30 @@
-//package fundamentals;
-//import java.util.*;
-//public class Armstrong {
-//
-//	public static void main(String[] args) {
-//		// TODO Auto-generated method stub
-//		System.out.println("Enter a number : ");
-//		Scanner sc = new Scanner(System.in);
-//		int n = sc.nextInt();
-//		for(int i = 1; i <= n; i++) {
-//			int num = i;
-//			int sum = 0;
-//			while (num > 0) {
-//				int amr = num % 10;
-//				sum = sum + amr * amr * amr ;
-//				num = num/10;
-//				
-//			}
-//			if (sum == i) {
-//				System.out.println(i);
-//			}
-//		}
-//
-//	}
-//
-//}
-
-
 package fundamentals;
 import java.util.*;
 
 public class Armstrong {
 
     public static void main(String[] args) {
-    	
-    	System.out.println("Enter a number:");
-
+        
+        System.out.println("Enter a number:");
         Scanner sc = new Scanner(System.in);
       
-        int num = sc.nextInt();
+        int n = sc.nextInt();
+        
+        int number = n;         
+        int originalNumber = n;  
+        int result = 0;         
 
-        int original = num;
-        int sum = 0;
+        int exponent = String.valueOf(n).length(); 
 
-        for (; num > 0; num = num / 10) {
-            int digit = num % 10;
-            sum = sum + digit * digit * digit;
+        while (number != 0) {
+            int base = number % 10;
+            result += Math.pow(base, exponent); 
+            number = number / 10;
         }
-
-        if (sum == original) {
-            System.out.println(original + " is an Armstrong number");
+        if (result == originalNumber) {
+            System.out.println(originalNumber + " is an Armstrong number");
         } else {
-            System.out.println(original + " is not an Armstrong number");
+            System.out.println(originalNumber + " is not an Armstrong number");
         }
 
         sc.close();
